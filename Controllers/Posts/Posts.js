@@ -26,11 +26,11 @@ console.log("user",user)
       })
       
       console.log("debug 2",NewPost);
-       return res.json(NewPost)
+       return res.status(200).json(NewPost)
       console.log("debug 3");
     }catch (err){
       console.log("debug 4");
-      return res.status(400).json({
+      return res.status("400").json({
         err
       })
     }
