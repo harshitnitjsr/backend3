@@ -14,7 +14,7 @@ const uncomment = require("../../Controllers/Posts/uncomment")
 const remove = require("../../Controllers/Posts/remove");
 const editpost = require("../../Controllers/Posts/editpost");
 
-router.route("/:userId").post(auth,createPost);
+router.route("/:userId").post(createPost);
 router.route('/feed/:userId').get(list)
 router.route('/feeduser/:userId').get(list1)
 router.get('/:postid',readpost)

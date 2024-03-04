@@ -8,23 +8,28 @@ const createPost = async (req,res)=>{
 
 
 const { Text, pic,user } = req.body;
+console.log(req.body)
+console.log("user",user)
 
 
-  const NewPost = await new Post({
-     
-	caption:Text,
-	photo:pic,
-	author:user.id,	
-	userDetails:{name:user.name , id:user.id}
 
-  })
-
-    
+    console.log("debug 1");
 
    try {
-      let result = await NewPost.save()
-      res.json(result)
+    const NewPost = await  Post.create({
+     
+      caption:Text,
+      photo:pic,
+      author:user.id,	
+      userDetails:{name:user.name , id:user.id}
+    
+      })
+      
+      console.log("debug 2",NewPost);
+       return res.json(NewPost)
+      console.log("debug 3");
     }catch (err){
+      console.log("debug 4");
       return res.status(400).json({
         err
       })
